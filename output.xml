@@ -1,34 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.0 on win32)" generated="20230129 12:26:00.252" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.11.0 on win32)" generated="20230129 12:34:48.606" rpa="false" schemaversion="3">
 <suite id="s1" name="Api" source="C:\Users\vdi-student\PycharmProjects\repo\new2\api.robot">
 <test id="s1-t1" name="API_GET_TEST" line="7">
 <kw name="GET" library="RequestsLibrary">
-<arg>https://simple-books-api.glitch.me</arg>
+<var>${get_responce}</var>
+<arg>https://simple-books-api.glitch.me/status</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20230129 12:26:01.409" level="INFO">GET Request : url=https://simple-books-api.glitch.me/ 
- path_url=/ 
+<msg timestamp="20230129 12:34:49.348" level="INFO">GET Request : url=https://simple-books-api.glitch.me/status 
+ path_url=/status 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20230129 12:26:01.409" level="INFO">GET Response : url=https://simple-books-api.glitch.me/ 
+<msg timestamp="20230129 12:34:49.348" level="INFO">GET Response : url=https://simple-books-api.glitch.me/status 
  status=200, reason=OK 
- headers={'Date': 'Sun, 29 Jan 2023 11:25:18 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '46', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'etag': 'W/"2e-kh6L/Eo2ZbYePMROtHK7TuPdR1U"'} 
- body={"message":"Welcome to the Simple Books API."} 
+ headers={'Date': 'Sun, 29 Jan 2023 11:34:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'etag': 'W/"f-v/Y1JusChTxrQUzPtNAKycooOTA"'} 
+ body={"status":"OK"} 
  </msg>
-<status status="PASS" starttime="20230129 12:26:00.442" endtime="20230129 12:26:01.409"/>
+<msg timestamp="20230129 12:34:49.348" level="INFO">${get_responce} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230129 12:34:48.848" endtime="20230129 12:34:49.348"/>
 </kw>
-<status status="PASS" starttime="20230129 12:26:00.437" endtime="20230129 12:26:01.409"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${get_responce}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230129 12:34:49.348" endtime="20230129 12:34:49.353"/>
+</kw>
+<status status="PASS" starttime="20230129 12:34:48.848" endtime="20230129 12:34:49.353"/>
 </test>
-<status status="PASS" starttime="20230129 12:26:00.252" endtime="20230129 12:26:01.409"/>
+<test id="s1-t2" name="API_GET_TEST_2" line="11">
+<kw name="GET" library="RequestsLibrary">
+<var>${get_responce}</var>
+<arg>https://simple-books-api.glitch.me/books</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230129 12:34:49.852" level="INFO">GET Request : url=https://simple-books-api.glitch.me/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230129 12:34:49.852" level="INFO">GET Response : url=https://simple-books-api.glitch.me/books 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 29 Jan 2023 11:34:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '417', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'etag': 'W/"1a1-MfqhfTYtZO2sguD1mJq8Vf41WjU"'} 
+ body=[{"id":1,"name":"The Russian","type":"fiction","available":true},{"id":2,"name":"Just as I Am","type":"non-fiction","available":false},{"id":3,"name":"The Vanishing Half","type":"fiction","available":true},{"id":4,"name":"The Midnight Library","type":"fiction","available":true},{"id":5,"name":"Untamed","type":"non-fiction","available":true},{"id":6,"name":"Viscount Who Loved Me","type":"fiction","available":true}] 
+ </msg>
+<msg timestamp="20230129 12:34:49.852" level="INFO">${get_responce} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230129 12:34:49.358" endtime="20230129 12:34:49.852"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${get_responce}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230129 12:34:49.852" endtime="20230129 12:34:49.852"/>
+</kw>
+<status status="PASS" starttime="20230129 12:34:49.353" endtime="20230129 12:34:49.852"/>
+</test>
+<status status="PASS" starttime="20230129 12:34:48.606" endtime="20230129 12:34:49.857"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Api">Api</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Api">Api</stat>
 </suite>
 </statistics>
 <errors>
